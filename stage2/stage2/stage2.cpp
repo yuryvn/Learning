@@ -4,11 +4,13 @@
 #include "stdafx.h"
 #include <iostream>
 #include <iomanip>
+#include <stdlib.h>
+#include <time.h>
+
+
 using namespace std;
 
 
-int _tmain(int argc, _TCHAR* argv[])
-{
 	//int dev,product, x;
 	//product = 5; x = 5; dev = 5;
 	//product *= x++;
@@ -88,18 +90,90 @@ int _tmain(int argc, _TCHAR* argv[])
 	//}
 	//-------------------------------------------------------------
 
-	int a,b,c,k;
-	for (a = 1; a <= 50; a++){
-		for (b = 1; (b <= a); b++){
-			k = b;
-			for (c = 1; c <= k; c++){
-				if ((b*b + c*c) == a*a)
-					cout << b << " " << c << " " << a << "\n";
-			}
-		}
-	}
+	//int a,b,c,k;
+	//for (a = 1; a <= 50; a++){
+	//	for (b = 1; (b <= a); b++){
+	//		k = b;
+	//		for (c = 1; c <= k; c++){
+	//			if ((b*b + c*c) == a*a)
+	//				cout << b << " " << c << " " << a << "\n";
+	//		}
+	//	}
+	//}
+//int RollDice(void);
+//void PrintStatus(int);
 
+
+	//for (int i = 1; i <= 20; i++){
+	//	cout << setw(5) << rand() % 6 + 1;
+	//	if (i % 5 == 0)
+	//		cout << endl;
+	//IGRA CRAPS
+	//srand(time(NULL));
+	//int Status, FirstRoll, Roll;
+	//int wins = 0, loses = 0;
+	//int cases = 1000000;
+
+	//for (register int cases_ = 1; cases_<=cases; cases_++){
+
+	//	FirstRoll = RollDice();
+	//	switch (FirstRoll){
+	//	case 2: case 3: case 12: {Status = 2; break; }
+	//	case 7: case 11: {Status = 1; break; }
+	//	default:{Status = 0; break; }
+	//	}
+
+	//	//cout << "First roll is " << FirstRoll << "\n";
+	//	//PrintStatus(Status);
+
+	//	while (Status == 0){
+	//		Roll = RollDice();
+	//		if (Roll == FirstRoll)
+	//			Status = 1;
+	//		if (Roll == 7)
+	//			Status = 2;
+	//		//cout << "Your roll:" << Roll << "\n";
+	//		//PrintStatus(Status);
+	//	}
+	//	if (Status == 1)
+	//		wins++;
+	//	else
+	//		loses++;
+	//}
+	//if (wins + loses != cases)
+	//	cout << "warning, wins+loses not equal to amount of cases" << endl;
+	//cout << "Wins:" << wins << "; Loses:" << loses << endl;
 	//
-	return 0;
-	}
+		//
+//int RollDice(void){
+//	return rand() % 6 + 2 + rand() % 6;
+//}
+//
+//void PrintStatus(int St){
+//	cout << "Status of the game:";
+//	switch (St){
+//	case 0:{cout << "Continue\n"; break; }
+//	case 1:{cout << "Win\n"; break; }
+//	case 2:{cout << "Lose\n"; break; }
+//	default:{cout << "strange, we should not be here, St=" << St << "\n"; }
+//	}
+//}
 
+void xx(void);
+
+int _tmain(int argc, _TCHAR* argv[])
+{
+	cout << "first" << endl;
+	xx();
+	cout << "second" << endl;
+	xx();
+
+	return 0;
+}
+
+void xx(void){
+	static int x = 1;
+	for (int i = 1; i <= 10; i++)
+		cout << x++ << " ";
+	cout << endl;
+}
