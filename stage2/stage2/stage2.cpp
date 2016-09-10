@@ -162,39 +162,67 @@ using namespace std;
 // ob'yavleniya peremennih--------------------static (ne stirayutsya pri vyhode iz funkcii,no vne funkcii ne vidny
 // register (pri vozmozhnosti pomeschayutsya v registr proca, a ne v operativku, ideal'no dlya vsyakih counterov
 //prichyom o'byavlenie peremennnoi v main ne delaet eyo global'noi, ona Tol'ko local'naya dlya main()
-void xx(void);
-int fact(int);
 
-int y = 1;//global variable y
+//void xx(void);
+//int fact(int);
+//
+//int y = 1;//global variable y
+//
+//int _tmain(int argc, _TCHAR* argv[])
+//{	
+//	int y = 5; //local main variable y
+//	cout << "first" << endl;
+//	xx();
+//	cout << "second" << endl;
+//	xx();
+//	cout << "y in main=" << y << endl;
+//
+//	cout << "fact of 5="<<fact(5) << endl;
+//
+//	return 0;
+//}
+//
+//void xx(void){
+//	static int x = 1;
+//	for (int i = 1; i <= 10; i++)
+//		cout << x++ << " ";
+//	cout << endl;
+//	cout << "y in one of functions=" << y << endl;
+//}
+//
+////recursiya---------
+//int fact(int input){
+//	if (input > 1)
+//		return input*fact(input - 1);
+//	else
+//		return input;
+//}
+//
+//
+//
+//---------------------------ssylki-----------------------------------
 
-int _tmain(int argc, _TCHAR* argv[])
-{	
-	int y = 5; //local main variable y
-	cout << "first" << endl;
-	xx();
-	cout << "second" << endl;
-	xx();
-	cout << "y in main=" << y << endl;
+int SquareByValue(int);
+int SquareByLink(int &);
 
-	cout << "fact of 5="<<fact(5) << endl;
+void main(void){
+	int a;
+	cout << "Enter value to square";
+	cin >> a;
+	cout << "Squarebyvalue=" << SquareByValue(a) << " " << "a=" << a << endl;
+	SquareByLink(a); //vot zdes' a izmenitsya.
+	cout << "Squarebylink="<<SquareByLink(a) << " " << "a=" << a << endl;//a vot zdes' a ne izmenyaetsya pochemu-to. vidimo pri vyzove iz cout menyat'sya ne budet
 
-	return 0;
 }
 
-void xx(void){
-	static int x = 1;
-	for (int i = 1; i <= 10; i++)
-		cout << x++ << " ";
-	cout << endl;
-	cout << "y in one of functions=" << y << endl;
+int SquareByValue(int c){
+	return c *= c;
 }
 
-//recursiya---------
-int fact(int input){
-	if (input > 1)
-		return input*fact(input - 1);
-	else
-		return input;
+int SquareByLink(int &cRef){
+	cRef *= cRef;
+	cout << "cRef=" << cRef << endl;
+	return cRef;
 }
 
 
