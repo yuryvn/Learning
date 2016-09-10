@@ -250,19 +250,42 @@ using namespace std;
 
 //--------------------------------perezagruzka funkcii--------------------
 //funkcii s odinakovim imenem, no raznimim parametrami
+//
+//int square(int a){ return a*a; }
+//double square(double a){ return a*a; }
+//
+//void main(void){
+//	cout<<square(1)<<endl;
+//	cout << square(1.1) << endl;
+//	return;
+//
+//
+//}
 
-int square(int a){ return a*a; }
-double square(double a){ return a*a; }
+//----------------------------function templates-------------------------
+
+template <class T>
+T FindMax(T, T, T);
 
 void main(void){
-	cout<<square(1)<<endl;
-	cout << square(1.1) << endl;
+	int a, b, c;
+	char aa, bb, cc;
+	cout << "Enter 3 numbers" << endl;
+	cin >> a >> b >> c;
+	cout << "Maximum is " << FindMax(a, b, c) << endl;
+	cout << "Enter 3 chars" << endl;
+	cin >> aa >> bb >> cc;
+	cout << "Maximum is " << FindMax(aa, bb, cc) << endl;
 	return;
-
-
 }
 
-
+template <class T>
+T FindMax(T x, T y, T z){
+	T max=x;
+	if (y > max) max = y;
+	if (z > max) max = z;
+	return max;
+}
 
 
 
