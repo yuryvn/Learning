@@ -264,28 +264,74 @@ using namespace std;
 
 //----------------------------function templates-------------------------
 
-template <class T>
-T FindMax(T, T, T);
+//template <class T>
+//T FindMax(T, T, T);
+//
+//void main(void){
+//	int a, b, c;
+//	char aa, bb, cc;
+//	cout << "Enter 3 numbers" << endl;
+//	cin >> a >> b >> c;
+//	cout << "Maximum is " << FindMax(a, b, c) << endl;
+//	cout << "Enter 3 chars" << endl;
+//	cin >> aa >> bb >> cc;
+//	cout << "Maximum is " << FindMax(aa, bb, cc) << endl;
+//	return;
+//}
+//
+//template <class T>
+//T FindMax(T x, T y, T z){
+//	T max=x;
+//	if (y > max) max = y;
+//	if (z > max) max = z;
+//	return max;
+//}
+
+
+//uprazhnenie 3.12
+
+
+double calculateCharges(float);
 
 void main(void){
-	int a, b, c;
-	char aa, bb, cc;
-	cout << "Enter 3 numbers" << endl;
-	cin >> a >> b >> c;
-	cout << "Maximum is " << FindMax(a, b, c) << endl;
-	cout << "Enter 3 chars" << endl;
-	cin >> aa >> bb >> cc;
-	cout << "Maximum is " << FindMax(aa, bb, cc) << endl;
-	return;
+	float dur1, dur2, dur3;
+	cout << "Enter duration for 3 clients"<<endl;
+	cin >> dur1 >> dur2 >> dur3;
+	cout << "Car\t" << "Duration\t" << "cost" << endl;
+	for (int count = 0; count < 3;count++){
+		switch (count)
+		{
+		case 0:{
+			cout << count << "\t" << setw(3) << setprecision(1) << fixed << right << dur1<<"\t\t" << setw(3) << setprecision(1) << calculateCharges(dur1)<<endl;
+			break; }
+		case 1:{
+			cout << count << "\t" << setw(3) << setprecision(1) << fixed << right << dur2 << "\t\t" << setw(3) << setprecision(1) << calculateCharges(dur2) << endl;
+			break; }
+		case 2:{
+			cout << count << "\t" << setw(3) << setprecision(1) << fixed << right << dur3 << "\t\t" << setw(3) << setprecision(1) << calculateCharges(dur3) << endl;
+			break; }
+		default:
+			break;
+		}
+	}
 }
 
-template <class T>
-T FindMax(T x, T y, T z){
-	T max=x;
-	if (y > max) max = y;
-	if (z > max) max = z;
-	return max;
+double calculateCharges(float duration){
+	int Dur;
+	double Charges = 0;
+	Dur = (int)duration;
+	int sutok = Dur / 24;
+	double chasov = duration - sutok * 24;
+	if (chasov >= 3 && chasov <= 19)
+		Charges = 10 * sutok + 2.0 + ((int)chasov - 3)*0.5;
+	else
+		if (chasov > 19)
+			Charges = 10 * sutok + 10.0;
+		else
+			if (chasov >= 0.001)
+				Charges = 10 * sutok + 2.0;
+			else
+				Charges = 10 * sutok;
+
+	return Charges;
 }
-
-
-
