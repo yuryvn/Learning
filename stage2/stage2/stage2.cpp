@@ -202,27 +202,43 @@ using namespace std;
 //
 //---------------------------ssylki-----------------------------------
 
-int SquareByValue(int);
-int SquareByLink(int &);
+//int SquareByValue(int);
+//int SquareByLink(int &);
+//
+//void main(void){
+//	int a;
+//	cout << "Enter value to square";
+//	cin >> a;
+//	cout << "Squarebyvalue=" << SquareByValue(a) << " " << "a=" << a << endl;
+//	SquareByLink(a); //vot zdes' a izmenitsya.
+//	cout << "Squarebylink="<<SquareByLink(a) << " " << "a=" << a << endl;//a vot zdes' a ne izmenyaetsya pochemu-to. vidimo pri vyzove iz cout menyat'sya ne budet
+//
+//}
+//
+//int SquareByValue(int c){
+//	return c *= c;
+//}
+//
+//int SquareByLink(int &cRef){
+//	cRef *= cRef;
+//	cout << "cRef=" << cRef << endl;
+//	return cRef;
+//}
+//
+
+//----------------------------znacheniya po umolchaniyu----------------------
+
+int boxvolume(int length=1, int width=1, int height=2);
 
 void main(void){
-	int a;
-	cout << "Enter value to square";
-	cin >> a;
-	cout << "Squarebyvalue=" << SquareByValue(a) << " " << "a=" << a << endl;
-	SquareByLink(a); //vot zdes' a izmenitsya.
-	cout << "Squarebylink="<<SquareByLink(a) << " " << "a=" << a << endl;//a vot zdes' a ne izmenyaetsya pochemu-to. vidimo pri vyzove iz cout menyat'sya ne budet
-
+	cout << boxvolume(2, 3);
+	return;
 }
 
-int SquareByValue(int c){
-	return c *= c;
+int boxvolume(int length, int width, int height){
+	return length*width*height;
 }
 
-int SquareByLink(int &cRef){
-	cRef *= cRef;
-	cout << "cRef=" << cRef << endl;
-	return cRef;
-}
+//---------------------------
 
 
