@@ -240,13 +240,29 @@ using namespace std;
 //}
 
 //---------------------------unarnaya operaciya razreshiya. dostup k global'noi peremennoi s tem zhe imenem chto i local'naya
+//
+//float a = 1.55;
+//void main(void){
+//	int a = 4;
+//	cout << "local a=" << a << "; global a=" << ::a << endl;
+//	return;
+//}
 
-float a = 1.55;
+//--------------------------------perezagruzka funkcii--------------------
+//funkcii s odinakovim imenem, no raznimim parametrami
+
+int square(int a){ return a*a; }
+double square(double a){ return a*a; }
+
 void main(void){
-	int a = 4;
-	cout << "local a=" << a << "; global a=" << ::a << endl;
+	cout<<square(1)<<endl;
+	cout << square(1.1) << endl;
 	return;
+
+
 }
-//------------------------------------
+
+
+
 
 
