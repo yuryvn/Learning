@@ -288,50 +288,73 @@ using namespace std;
 //}
 
 
-//uprazhnenie 3.12
+////uprazhnenie 3.12
+//
+//
+//double calculateCharges(float);
+//
+//void main(void){
+//	float dur1, dur2, dur3;
+//	cout << "Enter duration for 3 clients"<<endl;
+//	cin >> dur1 >> dur2 >> dur3;
+//	cout << "Car\t" << "Duration\t" << "cost" << endl;
+//	for (int count = 0; count < 3;count++){
+//		switch (count)
+//		{
+//		case 0:{
+//			cout << count << "\t" << setw(3) << setprecision(1) << fixed << right << dur1<<"\t\t" << setw(3) << setprecision(1) << calculateCharges(dur1)<<endl;
+//			break; }
+//		case 1:{
+//			cout << count << "\t" << setw(3) << setprecision(1) << fixed << right << dur2 << "\t\t" << setw(3) << setprecision(1) << calculateCharges(dur2) << endl;
+//			break; }
+//		case 2:{
+//			cout << count << "\t" << setw(3) << setprecision(1) << fixed << right << dur3 << "\t\t" << setw(3) << setprecision(1) << calculateCharges(dur3) << endl;
+//			break; }
+//		default:
+//			break;
+//		}
+//	}
+//}
+//
+//double calculateCharges(float duration){
+//	int Dur;
+//	double Charges = 0;
+//	Dur = (int)duration;
+//	int sutok = Dur / 24;
+//	double chasov = duration - sutok * 24;
+//	if (chasov >= 3 && chasov <= 19)
+//		Charges = 10 * sutok + 2.0 + ((int)chasov - 3)*0.5;
+//	else
+//		if (chasov > 19)
+//			Charges = 10 * sutok + 10.0;
+//		else
+//			if (chasov >= 0.001)
+//				Charges = 10 * sutok + 2.0;
+//			else
+//				Charges = 10 * sutok;
+//
+//	return Charges;
+//}
 
+//-------------------------------------------------- ex 3.17  ex 3.29
 
-double calculateCharges(float);
+int perfect(int);
 
 void main(void){
-	float dur1, dur2, dur3;
-	cout << "Enter duration for 3 clients"<<endl;
-	cin >> dur1 >> dur2 >> dur3;
-	cout << "Car\t" << "Duration\t" << "cost" << endl;
-	for (int count = 0; count < 3;count++){
-		switch (count)
-		{
-		case 0:{
-			cout << count << "\t" << setw(3) << setprecision(1) << fixed << right << dur1<<"\t\t" << setw(3) << setprecision(1) << calculateCharges(dur1)<<endl;
-			break; }
-		case 1:{
-			cout << count << "\t" << setw(3) << setprecision(1) << fixed << right << dur2 << "\t\t" << setw(3) << setprecision(1) << calculateCharges(dur2) << endl;
-			break; }
-		case 2:{
-			cout << count << "\t" << setw(3) << setprecision(1) << fixed << right << dur3 << "\t\t" << setw(3) << setprecision(1) << calculateCharges(dur3) << endl;
-			break; }
-		default:
-			break;
-		}
+	for (int i = 0; i < 10; i++)
+	{
+		cout << (1 + rand() % 5) * 2 << "\t" << (6 + rand() % 5 * 4) << endl;
+	}
+	for (int count = 1; count <= 10000; count++){
+		if (perfect(count) == 1) cout << count << endl;
 	}
 }
 
-double calculateCharges(float duration){
-	int Dur;
-	double Charges = 0;
-	Dur = (int)duration;
-	int sutok = Dur / 24;
-	double chasov = duration - sutok * 24;
-	if (chasov >= 3 && chasov <= 19)
-		Charges = 10 * sutok + 2.0 + ((int)chasov - 3)*0.5;
-	else
-		if (chasov > 19)
-			Charges = 10 * sutok + 10.0;
-		else
-			if (chasov >= 0.001)
-				Charges = 10 * sutok + 2.0;
-			else
-				Charges = 10 * sutok;
-
-	return Charges;
+int perfect(int number){
+	int sum=0;
+		for (int i = 1; i <= number / 2 + 1; i++){
+			if (number%i == 0) sum += i;
+		}
+		if (sum == number) return 1;
+		else return 0;
 }
