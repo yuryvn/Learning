@@ -227,18 +227,26 @@ using namespace std;
 //
 
 //----------------------------znacheniya po umolchaniyu----------------------
+//
+//int boxvolume(int length=1, int width=1, int height=2);
+//
+//void main(void){
+//	cout << boxvolume(2, 3);
+//	return;
+//}
+//
+//int boxvolume(int length, int width, int height){
+//	return length*width*height;
+//}
 
-int boxvolume(int length=1, int width=1, int height=2);
+//---------------------------unarnaya operaciya razreshiya. dostup k global'noi peremennoi s tem zhe imenem chto i local'naya
 
+float a = 1.55;
 void main(void){
-	cout << boxvolume(2, 3);
+	int a = 4;
+	cout << "local a=" << a << "; global a=" << ::a << endl;
 	return;
 }
-
-int boxvolume(int length, int width, int height){
-	return length*width*height;
-}
-
-//---------------------------
+//------------------------------------
 
 
