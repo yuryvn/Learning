@@ -15,7 +15,6 @@ Global
 		{9E333424-A7BE-4674-9686-C4F784055075}.Debug|Win32.Build.0 = Debug|Win32
 		{9E333424-A7BE-4674-9686-C4F784055075}.Release|Win32.ActiveCfg = Release|Win32
 		{9E333424-A7BE-4674-9686-C4F784055075}.Release|Win32.Build.0 = Release|Win32
-		{9E333424-A7BE-4674-9686-C4F784055075}.Release|Win32.Deploy.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

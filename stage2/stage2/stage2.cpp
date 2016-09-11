@@ -419,6 +419,7 @@ using namespace std;
 
 //-------------------------------ex.3.35--------------------------
 
+
 int number(void);
 int delenie(void);
 int umnozhenie(void);
@@ -429,7 +430,7 @@ int maxnumber = 5;
 
 
 int main(void){
-	int ocenka,trycount=0;
+	int ocenka, trycount = 0;
 	int primery = 5;
 
 	srand(time(NULL));
@@ -443,8 +444,8 @@ int main(void){
 	for (int count = 1; count <= primery; count++){
 		rand() % 2 ? ocenka = umnozhenie() : ocenka = delenie();
 
-		if (ocenka!=-1)
-		trycount += ocenka;
+		if (ocenka != -1)
+			trycount += ocenka;
 		else {
 			trycount = -1;
 			break;
@@ -457,7 +458,7 @@ int main(void){
 		if (trycount == 0) cout << "FANTASTIK!!" << endl;
 	}
 	else
-		cout << "bruker utgang "<<endl;
+		cout << "bruker utgang " << endl;
 	return 1;
 }
 
@@ -477,7 +478,7 @@ int delenie(void){
 	cout << "skriv ansvar eller -1 aa utgang " << res << "/" << a1 << "=" << endl;
 	cin >> input_ansvar;
 
-	while (cin.fail()||(int)input_ansvar!=input_ansvar){
+	while (cin.fail() || (int)input_ansvar != input_ansvar){
 		// user didn't input a number
 		cin.clear(); // reset failbit
 		cin.ignore(numeric_limits<streamsize>::max(), '\n'); //skip bad input
@@ -504,7 +505,7 @@ int delenie(void){
 		ansvar = (int)input_ansvar;
 
 	}
-	if (ansvar == -1) return -1; 
+	if (ansvar == -1) return -1;
 	else return output;
 }
 
@@ -544,7 +545,7 @@ int umnozhenie(void){
 			cin >> input_ansvar;
 		}
 
-	ansvar = (int)input_ansvar;
+		ansvar = (int)input_ansvar;
 
 	}
 	if (ansvar == -1) return -1;
