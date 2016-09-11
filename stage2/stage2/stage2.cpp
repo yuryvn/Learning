@@ -345,8 +345,16 @@ void main(void){
 	{
 		cout << (1 + rand() % 5) * 2 << "\t" << (6 + rand() % 5 * 4) << endl;
 	}
-	for (int count = 1; count <= 10000; count++){
-		if (perfect(count) == 1) cout << count << endl;
+	int maxnumber = 100000;
+	for (int count = 1; count <= maxnumber; count++){
+		if (perfect(count) == 1) { 
+			cout << count << endl;
+			for (int count1 = 1; count1 <= count / 2 + 1; count1++){
+				if (count%count1 == 0) cout << count1 << " ";
+			}
+			cout << endl;
+		}
+
 	}
 }
 
