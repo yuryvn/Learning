@@ -574,25 +574,28 @@ using namespace std;
 //	return output;
 //}
 // --------------------------------------------3.42-hanoiskie bashni----------------------
+//
+//void moving(int DiskN, int From, int To, int Temp);
+//
+//void main(void){
+//	int num;
+//	cout << "Enter number of disks" << endl;
+//	cin >> num;
+//	moving(num, 1, 3, 2);
+//	cout << "enter 0 for exit";
+//	cin>>num;
+//	return;
+//}
+//
+//void moving(int DiskN, int From, int To, int Temp){
+//	if (DiskN == 1) cout << From << "->" << To<<endl;
+//	else {
+//		moving(DiskN - 1, From, Temp, To);
+//		cout << From << "->" << To << endl;
+//		moving(DiskN - 1, Temp, To, From);
+//	}
+//	return;
+//}
 
-void moving(int DiskN, int From, int To, int Temp);
 
-void main(void){
-	int num;
-	cout << "Enter number of disks" << endl;
-	cin >> num;
-	moving(num, 1, 3, 2);
-	cout << "enter 0 for exit";
-	cin>>num;
-	return;
-}
 
-void moving(int DiskN, int From, int To, int Temp){
-	if (DiskN == 1) cout << From << "->" << To<<endl;
-	else {
-		moving(DiskN - 1, From, Temp, To);
-		cout << From << "->" << To << endl;
-		moving(DiskN - 1, Temp, To, From);
-	}
-	return;
-}
