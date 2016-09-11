@@ -368,29 +368,203 @@ using namespace std;
 //}
 //endings
 
-//--------------------------ex3.31-----------------------------
-int reversal(int);
-int power10(int);
+////--------------------------ex3.31-----------------------------
+//int reversal(int);
+//int power10(int);
+//
+//void main(void){
+//	int number;
+//
+//	cout << "Enter integer:" << endl;
+//	cin >> number;
+//	cout << "Reversal:" << reversal(number)<<endl;
+//}
+//
+//int reversal(int num){
+//	int output=0;
+//	cout<<num / power10(0)<<endl;
+//	for (int i = 0; num / power10(i) != 0; i++){
+//		output = output * 10 + (num / power10(i)) % 10;
+//		cout << "i="<<i << endl;
+//		}
+//	return output;
+//}
+//int power10(int deg){
+//	int out = 1;
+//	for (int i = 1; i <= deg; i++) out *= 10;
+//	return out;
+//}
 
-void main(void){
-	int number;
+//---------------------------------ex3.34---------------------
+//
+//int flip(void);
+//
+//void main(void){
+//	srand(time(NULL));
+//	int iterations = 100000;
+//	int orels=0,reshks=0,a;
+//	for (int i = 1; i <= iterations; i++){
+//		a = flip();
+//		cout << a << " ";
+//		a == 1 ? orels++ : reshks++;
+//		if (i % 50 == 0) cout << endl;
+//	}
+//	cout << endl;
+//	cout << "Orels=" << orels << "; Reshki=" << reshks << endl;
+//}
+//
+//int flip(void){
+//	return rand() % 2;
+//}
 
-	cout << "Enter integer:" << endl;
-	cin >> number;
-	cout << "Reversal:" << reversal(number)<<endl;
-}
+//-------------------------------ex.3.35--------------------------
 
-int reversal(int num){
-	int output=0;
-	cout<<num / power10(0)<<endl;
-	for (int i = 0; num / power10(i) != 0; i++){
-		output = output * 10 + (num / power10(i)) % 10;
-		cout << "i="<<i << endl;
+int number(void);
+int delenie(void);
+int umnozhenie(void);
+int EnterInteger(void);
+
+
+int maxnumber = 5;
+
+
+int main(void){
+	int ocenka,trycount=0;
+	int primery = 5;
+
+	srand(time(NULL));
+	cout << "skriv hvor mange oppgaver du vil gjerne:" << endl;
+	primery = EnterInteger();
+
+	cout << "Skriv max nummeret:" << endl;
+	maxnumber = EnterInteger();
+
+
+	for (int count = 1; count <= primery; count++){
+		rand() % 2 ? ocenka = umnozhenie() : ocenka = delenie();
+
+		if (ocenka!=-1)
+		trycount += ocenka;
+		else {
+			trycount = -1;
+			break;
 		}
-	return output;
+
+	}
+
+	if (trycount != -1){
+		cout << "du har " << trycount << " feiler i " << primery << " oppgaver " << endl;
+		if (trycount == 0) cout << "FANTASTIK!!" << endl;
+	}
+	else
+		cout << "bruker utgang "<<endl;
+	return 1;
 }
-int power10(int deg){
-	int out = 1;
-	for (int i = 1; i <= deg; i++) out *= 10;
-	return out;
+
+int number(void){
+	return 1 + rand() % (maxnumber - 1);
+}
+
+
+int delenie(void){
+	int a1 = number();
+	int a2 = number();
+	int res = a1*a2;
+	int output = 0;
+	int ansvar;
+	float input_ansvar;
+
+	cout << "skriv ansvar eller -1 aa utgang " << res << "/" << a1 << "=" << endl;
+	cin >> input_ansvar;
+
+	while (cin.fail()||(int)input_ansvar!=input_ansvar){
+		// user didn't input a number
+		cin.clear(); // reset failbit
+		cin.ignore(numeric_limits<streamsize>::max(), '\n'); //skip bad input
+		// next, request user reinput
+		cout << "det er ikke integer, skriv igjen" << endl;
+		cin >> input_ansvar;
+	}
+	ansvar = (int)input_ansvar;
+
+	while ((ansvar != a2) && (ansvar != -1)){
+		output++;
+		cout << "feil ansvar prove igjen " << endl;
+		cin >> input_ansvar;
+
+		while (!cin || (int)input_ansvar != input_ansvar){
+			cout << "inside";
+			// user didn't input a number
+			cin.clear(); // reset failbit
+			cin.ignore(numeric_limits<streamsize>::max(), '\n'); //skip bad input
+			// next, request user reinput
+			cout << "det er ikke integer, skriv igjen" << endl;
+			cin >> input_ansvar;
+		}
+		ansvar = (int)input_ansvar;
+
+	}
+	if (ansvar == -1) return -1; 
+	else return output;
+}
+
+int umnozhenie(void){
+	int a1 = number();
+	int a2 = number();
+	int res = a1*a2;
+	int output = 0;
+	int ansvar;
+	float input_ansvar;
+
+	cout << "skriv ansvar eller -1 aa utgang " << a1 << "*" << a2 << "=" << endl;
+	cin >> input_ansvar;
+
+	while (!cin || (int)input_ansvar != input_ansvar){
+		// user didn't input a number
+		cin.clear(); // reset failbit
+		cin.ignore(numeric_limits<streamsize>::max(), '\n'); //skip bad input
+		// next, request user reinput
+		cout << "det er ikke integer, skriv igjen" << endl;
+		cin >> input_ansvar;
+	}
+
+	ansvar = (int)input_ansvar;
+
+	while ((ansvar != res) && (ansvar != -1)){
+		output++;
+		cout << "feil ansvar prove igjen " << endl;
+		cin >> input_ansvar;
+
+		while (!cin || (int)input_ansvar != input_ansvar){
+			// user didn't input a number
+			cin.clear(); // reset failbit
+			cin.ignore(numeric_limits<streamsize>::max(), '\n'); //skip bad input
+			// next, request user reinput
+			cout << "det er ikke integer, skriv igjen" << endl;
+			cin >> input_ansvar;
+		}
+
+	ansvar = (int)input_ansvar;
+
+	}
+	if (ansvar == -1) return -1;
+	else return output;
+}
+
+int EnterInteger(void){
+	int output;
+	float input;
+
+	cin >> input;
+
+	while (!cin || (int)input != input){
+		// user didn't input a number
+		cin.clear(); // reset failbit
+		cin.ignore(numeric_limits<streamsize>::max(), '\n'); //skip bad input
+		// next, request user reinput
+		cout << "det er ikke integer, skriv igjen" << endl;
+		cin >> input;
+	}
+	output = int(input);
+	return output;
 }
