@@ -358,3 +358,4 @@ int perfect(int number){
 		if (sum == number) return 1;
 		else return 0;
 }
+//endings
