@@ -338,32 +338,59 @@ using namespace std;
 
 //-------------------------------------------------- ex 3.17  ex 3.29
 
-int perfect(int);
+//int perfect(int);
+//
+//void main(void){
+//	for (int i = 0; i < 10; i++)
+//	{
+//		cout << (1 + rand() % 5) * 2 << "\t" << (6 + rand() % 5 * 4) << endl;
+//	}
+//	int maxnumber = 100000;
+//	for (int count = 1; count <= maxnumber; count++){
+//		if (perfect(count) == 1) { 
+//			cout << count << endl;
+//			for (int count1 = 1; count1 <= count / 2 + 1; count1++){
+//				if (count%count1 == 0) cout << count1 << " ";
+//			}
+//			cout << endl;
+//		}
+//
+//	}
+//}
+//
+//int perfect(int number){
+//	int sum=0;
+//		for (int i = 1; i <= number / 2 + 1; i++){
+//			if (number%i == 0) sum += i;
+//		}
+//		if (sum == number) return 1;
+//		else return 0;
+//}
+//endings
+
+//--------------------------ex3.31-----------------------------
+int reversal(int);
+int power10(int);
 
 void main(void){
-	for (int i = 0; i < 10; i++)
-	{
-		cout << (1 + rand() % 5) * 2 << "\t" << (6 + rand() % 5 * 4) << endl;
-	}
-	int maxnumber = 100000;
-	for (int count = 1; count <= maxnumber; count++){
-		if (perfect(count) == 1) { 
-			cout << count << endl;
-			for (int count1 = 1; count1 <= count / 2 + 1; count1++){
-				if (count%count1 == 0) cout << count1 << " ";
-			}
-			cout << endl;
-		}
+	int number;
 
-	}
+	cout << "Enter integer:" << endl;
+	cin >> number;
+	cout << "Reversal:" << reversal(number)<<endl;
 }
 
-int perfect(int number){
-	int sum=0;
-		for (int i = 1; i <= number / 2 + 1; i++){
-			if (number%i == 0) sum += i;
+int reversal(int num){
+	int output=0;
+	cout<<num / power10(0)<<endl;
+	for (int i = 0; num / power10(i) != 0; i++){
+		output = output * 10 + (num / power10(i)) % 10;
+		cout << "i="<<i << endl;
 		}
-		if (sum == number) return 1;
-		else return 0;
+	return output;
 }
-//endings
+int power10(int deg){
+	int out = 1;
+	for (int i = 1; i <= deg; i++) out *= 10;
+	return out;
+}
